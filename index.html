@@ -13,15 +13,15 @@
 				//Tag tabel awal
 				var str="<table border=1>";
 				//Judul tabel
-				str+="<tr><td>No</td><td>Headline</td><td>Category</td><td>Published</td><td>Scrapped Time</td></tr>";
+				str+="<tr><td>No</td><td>Headline</td><tr>";
 				//Looping data headline dengan fungsi $.each() JQuery
 				$.each(obj,function(n,data){
 					//Isi tabel
 					str+="<tr><td>"+(n+1)+"</td>";
-              		str+="<td>"+data.Headline+"</td>";
-				    str+="<td>"+data.Category+"</td>";
-				    str+="<td>"+data.Published+"</td>";
-					str+="<td>"+data.Scrapped+"</td></tr>";
+              		str+="<td>"+data.judu;+"</td>";
+				    //str+="<td>"+data.Category+"</td>";
+				    //str+="<td>"+data.Published+"</td>";
+					//str+="<td>"+data.Scrapped+"</td></tr>";
 				});
 				//Tag tabel penutup
 				str+="</tabel>";
@@ -33,7 +33,7 @@
 </head>
 <body>
 	<!-- Menampilkan judul -->
-	<h1> Headline Republika Online </h1>
+	<h1> Headline Republika Online 1</h1>
 	<!-- Menampilkan headline -->
 	<div id="headline_json"></div>
 </body>
