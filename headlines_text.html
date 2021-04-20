@@ -1,0 +1,33 @@
+<!-- File : heading_teks.html -->
+<html>
+<head>
+    <title>Membaca File Teks</title>
+    <!-- Import library Jquery -->
+    <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type = "text/javascript">
+        $(function(){
+    
+            // Mengambil data dari fileheadline.txt dengan fungsi $.get() JQuery
+            $.get('headline.txt',function(obj){
+                //pisahkan \n yang menjadi batas antar headline (newline)
+                //var headline =obj.split('\n);
+                var headline = obj.split('\n');
+                var str = ' ';
+                //looping data headline
+                for (var i = 0; i < headline.length; i++) {
+                    //menggabungkan semua headline dibatasi dengan </br> ==> break/newline
+                    str += headline[i]+'</br>';
+                }
+                //Display semua headline ke html dengan id=headline_teks
+                $('#headline_teks').html(str);
+            });      
+        });
+    </script>
+</head>
+<body>
+    <!-- Menampilkan Judul -->
+    <h1> Headline Republika Online</h1>
+    <!-- Menampilkan Headline -->
+    <div id = "headline_teks"></div>
+</body>
+</html>

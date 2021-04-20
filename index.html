@@ -1,33 +1,40 @@
-<!-- File : heading_teks.html -->
+<!-- File: headline_json.html -->
 <html>
 <head>
-    <title>Membaca File Teks</title>
-    <!-- Import library Jquery -->
-    <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script type = "text/javascript">
-        $(function(){
-    
-            // Mengambil data dari fileheadline.txt dengan fungsi $.get() JQuery
-            $.get('headline.txt',function(obj){
-                //pisahkan \n yang menjadi batas antar headline (newline)
-                //var headline =obj.split('\n);
-                var headline = obj.split('\n');
-                var str = ' ';
-                //looping data headline
-                for (var i = 0; i < headline.length; i++) {
-                    //menggabungkan semua headline dibatasi dengan </br> ==> break/newline
-                    str += headline[i]+'</br>';
-                }
-                //Display semua headline ke html dengan id=headline_teks
-                $('#headline_teks').html(str);
-            });      
-        });
-    </script>
+	<title>Membaca File Json</title>
+	<!-- Import library JQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<!-- Kode Java Script -->
+	<script type="text/javascript">
+		$(function(){
+		
+			//Mengambil data dari file headline.txt dengan fungsi $.get() JQuery
+			$.get('headline.json',function(obj) {
+				//Tag tabel awal
+				var str="<table border=1>";
+				//Judul tabel
+				str+="<tr><td>No</td><td>Headline</td><td>Category</td><td>Published</td><td>Scrapped Time</td></tr>";
+				//Looping data headline dengan fungsi $.each() JQuery
+				$.each(obj,function(n,data){
+					//Isi tabel
+					str+="<tr><td>"+(n+1)+"</td>";
+              		str+="<td>"+data.Headline+"</td>";
+				    str+="<td>"+data.Category+"</td>";
+				    str+="<td>"+data.Published+"</td>";
+					str+="<td>"+data.Scrapped+"</td></tr>";
+				});
+				//Tag tabel penutup
+				str+="</tabel>";
+				//Display semua headline ke html dengna id=media
+				$('#headline_json').html(str);
+			});
+		});
+	</script>
 </head>
 <body>
-    <!-- Menampilkan Judul -->
-    <h1> Headline Republika Online</h1>
-    <!-- Menampilkan Headline -->
-    <div id = "headline_teks"></div>
+	<!-- Menampilkan judul -->
+	<h1> Headline Republika Online </h1>
+	<!-- Menampilkan headline -->
+	<div = id="headline_json"></div>
 </body>
 </html>
